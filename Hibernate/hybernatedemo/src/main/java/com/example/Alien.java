@@ -31,10 +31,10 @@ public class Alien {
     }
     @Override
     public String toString(){
-       return "Laptop{"+
-       "LaptopID="+aid+
-       ",LaptopName="+aname+
-       ",LaptopTech="+tech+"}";
+       return "Allien{"+
+       "AllienID="+aid+
+       ",AllienName="+aname+
+       ",AllienTech="+tech+"}";
     }
 
 }
