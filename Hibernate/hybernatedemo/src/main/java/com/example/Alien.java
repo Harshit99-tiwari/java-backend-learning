@@ -10,6 +10,7 @@ public class Alien {
     private int aid;
     private  String aname;
     private String tech;
+    private Laptop laptop;
 
      public int getaID(){
         return aid;
@@ -29,12 +30,19 @@ public class Alien {
     public void setTech(String tech){
           this.tech= tech;
     }
+    public Laptop getLaptop() {
+        return laptop;
+    }
+    public void setLaptop(Laptop laptop) {
+        this.laptop = laptop;
+    }
     @Override
     public String toString(){
-       return "Allien{"+
-       "AllienID="+aid+
-       ",AllienName="+aname+
-       ",AllienTech="+tech+"}";
+       return "Alien{"+
+       "aid="+aid+
+       ",aname="+aname+
+       ",tech="+tech+
+       ",laptop="+laptop+"}";
     }
 
 }
