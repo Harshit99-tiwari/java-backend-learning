@@ -1,5 +1,8 @@
 package com.example;
 
+import jakarta.persistence.Embeddable;
+
+@Embeddable
 public class Laptop {
 
     private String brand;

@@ -73,7 +73,7 @@ public class App {
 
         session.close();
         sf.close();
-        System.out.println(s1);*/
+        System.out.println(s1);
 
         //DELETE DATA FROM TABLE
          Student s1 = new Student();
@@ -87,7 +87,35 @@ public class App {
 
         session.close();
         sf.close();
-        System.out.println(s1);
+        System.out.println(s1);*/
+
+        Laptop l1 = new Laptop();
+        l1.setBrand("Asus");
+        l1.setModel("ROG");
+        l1.setRam(16);
+        
+        Alien a1 = new Alien();
+        a1.setaID(102);
+        a1.setaName("Harshit");
+        a1.setTech("JAVA");
+        a1.setLaptop(l1);
+
+        SessionFactory sf = new Configuration()
+        .configure()
+        .addAnnotatedClass(com.example.Alien.class)
+        .buildSessionFactory();
+
+        Session session = sf.openSession();
+       
+        Transaction transaction =  session.beginTransaction();
+
+        session.persist(a1);
+        transaction.commit();
+
+      
+        session.close();
+        sf.close();
+      
 
     }
 }
