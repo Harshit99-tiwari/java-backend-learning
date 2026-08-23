@@ -2,6 +2,8 @@ package com.example;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Alien {
@@ -10,6 +12,9 @@ public class Alien {
     private int aid;
     private  String aname;
     private String tech;
+
+    @OneToOne
+    @JoinColumn(name = "laptop_lid")
     private Laptop laptop;
 
      public int getaID(){

@@ -90,12 +90,13 @@ public class App {
         System.out.println(s1);*/
 
         Laptop l1 = new Laptop();
+        l1.setLid(1);
         l1.setBrand("Asus");
         l1.setModel("ROG");
         l1.setRam(16);
         
         Alien a1 = new Alien();
-        a1.setaID(102);
+        a1.setaID(103);
         a1.setaName("Harshit");
         a1.setTech("JAVA");
         a1.setLaptop(l1);
@@ -103,12 +104,14 @@ public class App {
         SessionFactory sf = new Configuration()
         .configure()
         .addAnnotatedClass(com.example.Alien.class)
+        .addAnnotatedClass(com.example.Laptop.class)
         .buildSessionFactory();
 
         Session session = sf.openSession();
        
         Transaction transaction =  session.beginTransaction();
 
+        session.persist(l1);
         session.persist(a1);
         transaction.commit();
 

@@ -1,13 +1,24 @@
 package com.example;
 
-import jakarta.persistence.Embeddable;
 
-@Embeddable
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Laptop {
 
+    @Id
+    private int lid;
     private String brand;
     private String model; 
     private int ram;
+
+    public int getLid() {
+        return lid;
+    }
+    public void setLid(int lid) {
+        this.lid = lid;
+    }
 
     public String getBrand() {
         return brand;
@@ -29,7 +40,8 @@ public class Laptop {
     }
     public String toString() {
         return "Laptop{" +
-                "brand='" + brand + '\'' +
+                "lid=" + lid +
+                ", brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
                 ", ram=" + ram +
                 '}';
