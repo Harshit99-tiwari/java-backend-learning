@@ -1,9 +1,12 @@
 package com.example;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.OneToMany;
+
 
 @Entity
 public class Alien {
@@ -13,9 +16,8 @@ public class Alien {
     private  String aname;
     private String tech;
 
-    @OneToOne
-    @JoinColumn(name = "laptop_lid")
-    private Laptop laptop;
+    @OneToMany(mappedBy = "alien")
+    private List<Laptop> laptops;
 
      public int getaID(){
         return aid;
@@ -35,19 +37,20 @@ public class Alien {
     public void setTech(String tech){
           this.tech= tech;
     }
-    public Laptop getLaptop() {
-        return laptop;
+    public List<Laptop> getLaptops() {
+        return laptops;
     }
-    public void setLaptop(Laptop laptop) {
-        this.laptop = laptop;
+    public void setLaptops(List<Laptop> laptops) {
+        this.laptops = laptops;
     }
+    
     @Override
     public String toString(){
        return "Alien{"+
        "aid="+aid+
        ",aname="+aname+
        ",tech="+tech+
-       ",laptop="+laptop+"}";
+       ",laptop="+laptops+"}";
     }
 
 }

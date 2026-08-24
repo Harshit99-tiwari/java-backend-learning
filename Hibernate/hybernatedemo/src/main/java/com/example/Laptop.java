@@ -3,6 +3,8 @@ package com.example;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Laptop {
@@ -12,6 +14,9 @@ public class Laptop {
     private String brand;
     private String model; 
     private int ram;
+    @ManyToOne
+    @JoinColumn(name = "alien_aid")
+    private Alien alien;
 
     public int getLid() {
         return lid;
@@ -38,12 +43,19 @@ public class Laptop {
     public void setRam(int ram) {
         this.ram = ram;
     }
+    public Alien getAlien() {
+        return alien;
+    }
+    public void setAlien(Alien alien) {
+        this.alien = alien;
+    }
     public String toString() {
         return "Laptop{" +
                 "lid=" + lid +
                 ", brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
                 ", ram=" + ram +
+                ", alien=" + alien +
                 '}';
     }
 
