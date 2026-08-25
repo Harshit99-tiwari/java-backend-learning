@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.Transaction;
+import org.hibernate.annotations.Array;
 
 //import org.hibernate.Transaction;
 
@@ -101,30 +102,45 @@ public class App {
      */
 
     Laptop l1 = new Laptop();
-    l1.setLid(3);
-    l1.setBrand("Asus");
-    l1.setModel("ROG");
-    l1.setRam(16);
+    l1.setLid(8);
+    l1.setBrand("Asuslk");
+    l1.setModel("ROG75");
+    l1.setRam(99);
 
     Laptop l2 = new Laptop();
-    l2.setLid(4);
-    l2.setBrand("Dell");
-    l2.setModel("XPS");
-    l2.setRam(32);
+    l2.setLid(9);
+    l2.setBrand("Delllo");
+    l2.setModel("XPSss");
+    l2.setRam(311);
+
+    Laptop l3 = new Laptop();
+    l3.setLid(10);
+    l3.setBrand("applex");
+    l3.setModel("macbookkk");
+    l3.setRam(14);
 
     Alien a1 = new Alien();
-    a1.setaID(104);
-    a1.setaName("Harshit");
-    a1.setTech("JAVA");
+    a1.setaID(108);
+    a1.setaName("Harshitta");
+    a1.setTech("JAVAAfx");
 
-    List<Laptop> laptops = new ArrayList<>();
-    laptops.add(l1);
-    laptops.add(l2);
+    Alien a2 = new Alien();
+    a2.setaID(109);
+    a2.setaName("Anvita");
+    a2.setTech("Pythonscript");
 
-    l1.setAlien(a1);
-    l2.setAlien(a1);
+    Alien a3 = new Alien();
+    a3.setaID(110);
+    a3.setaName("Ishas");
+    a3.setTech("JavaScripts");
 
-    a1.setLaptops(laptops);
+    a1.setLaptops(Arrays.asList(l1, l2));
+    a2.setLaptops(Arrays.asList(l2, l3));
+    a3.setLaptops(Arrays.asList(l1));
+
+    l1.setAliens(Arrays.asList(a1, a3));
+    l2.setAliens(Arrays.asList(a1, a2));
+    l3.setAliens(Arrays.asList(a2));
 
     SessionFactory sf = new Configuration()
         .configure()
@@ -138,7 +154,10 @@ public class App {
 
     session.persist(l1);
     session.persist(l2);
+    session.persist(l3);
     session.persist(a1);
+    session.persist(a2);
+    session.persist(a3);
     transaction.commit();
 
     session.close();

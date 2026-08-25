@@ -4,8 +4,8 @@ import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToMany;
+
 
 
 @Entity
@@ -16,7 +16,7 @@ public class Alien {
     private  String aname;
     private String tech;
 
-    @OneToMany(mappedBy = "alien")
+    @ManyToMany
     private List<Laptop> laptops;
 
      public int getaID(){

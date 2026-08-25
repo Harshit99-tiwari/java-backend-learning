@@ -1,10 +1,13 @@
 package com.example;
 
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+
+import jakarta.persistence.ManyToMany;
+
 
 @Entity
 public class Laptop {
@@ -14,9 +17,8 @@ public class Laptop {
     private String brand;
     private String model; 
     private int ram;
-    @ManyToOne
-    @JoinColumn(name = "alien_aid")
-    private Alien alien;
+    @ManyToMany(mappedBy = "laptops")
+    private List<Alien> aliens;
 
     public int getLid() {
         return lid;
@@ -43,11 +45,11 @@ public class Laptop {
     public void setRam(int ram) {
         this.ram = ram;
     }
-    public Alien getAlien() {
-        return alien;
+   public List<Alien> getAliens() {
+        return aliens;
     }
-    public void setAlien(Alien alien) {
-        this.alien = alien;
+    public void setAliens(List<Alien> aliens) {
+        this.aliens = aliens;
     }
     public String toString() {
         return "Laptop{" +
@@ -55,7 +57,7 @@ public class Laptop {
                 ", brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
                 ", ram=" + ram +
-                ", alien=" + alien +
+                ", aliens=" + aliens +
                 '}';
     }
 
