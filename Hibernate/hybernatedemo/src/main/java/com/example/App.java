@@ -102,45 +102,38 @@ public class App {
      */
 
     Laptop l1 = new Laptop();
-    l1.setLid(8);
-    l1.setBrand("Asuslk");
-    l1.setModel("ROG75");
-    l1.setRam(99);
+    l1.setLid(11);
+    l1.setBrand("Assuslk");
+    l1.setModel("ROsG75");
+    l1.setRam(992);
 
     Laptop l2 = new Laptop();
-    l2.setLid(9);
-    l2.setBrand("Delllo");
-    l2.setModel("XPSss");
-    l2.setRam(311);
+    l2.setLid(12);
+    l2.setBrand("Deelllo");
+    l2.setModel("XPdSss");
+    l2.setRam(3131);
 
     Laptop l3 = new Laptop();
-    l3.setLid(10);
-    l3.setBrand("applex");
-    l3.setModel("macbookkk");
-    l3.setRam(14);
+    l3.setLid(13);
+    l3.setBrand("aapplex");
+    l3.setModel("maacbookkk");
+    l3.setRam(141);
 
     Alien a1 = new Alien();
-    a1.setaID(108);
-    a1.setaName("Harshitta");
-    a1.setTech("JAVAAfx");
+    a1.setaID(110);
+    a1.setaName("Harshittta");
+    a1.setTech("JAVAAffx");
 
     Alien a2 = new Alien();
-    a2.setaID(109);
-    a2.setaName("Anvita");
-    a2.setTech("Pythonscript");
+    a2.setaID(111);
+    a2.setaName("Anvitaa");
+    a2.setTech("Pythonscriipt");
 
-    Alien a3 = new Alien();
-    a3.setaID(110);
-    a3.setaName("Ishas");
-    a3.setTech("JavaScripts");
 
     a1.setLaptops(Arrays.asList(l1, l2));
-    a2.setLaptops(Arrays.asList(l2, l3));
-    a3.setLaptops(Arrays.asList(l1));
-
-    l1.setAliens(Arrays.asList(a1, a3));
-    l2.setAliens(Arrays.asList(a1, a2));
-    l3.setAliens(Arrays.asList(a2));
+    a2.setLaptops(Arrays.asList(l3));
+   
+    
 
     SessionFactory sf = new Configuration()
         .configure()
@@ -157,10 +150,15 @@ public class App {
     session.persist(l3);
     session.persist(a1);
     session.persist(a2);
-    session.persist(a3);
+   
     transaction.commit();
 
+
     session.close();
+    Session session1 = sf.openSession();
+    Alien a5 = session1.find(Alien.class, 110);
+    //System.out.println(a5);
+   session1.close();
     sf.close();
 
   }

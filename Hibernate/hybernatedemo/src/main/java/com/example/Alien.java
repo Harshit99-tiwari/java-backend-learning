@@ -4,7 +4,8 @@ import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
+
 
 
 
@@ -16,7 +17,7 @@ public class Alien {
     private  String aname;
     private String tech;
 
-    @ManyToMany
+    @OneToMany
     private List<Laptop> laptops;
 
      public int getaID(){
