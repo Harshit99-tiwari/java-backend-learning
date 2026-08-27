@@ -1,14 +1,10 @@
 package com.example;
-
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.Transaction;
-import org.hibernate.annotations.Array;
+
 
 //import org.hibernate.Transaction;
 
@@ -157,7 +153,7 @@ public class App {
     session.close();
     Session session1 = sf.openSession();
     Alien a5 = session1.find(Alien.class, 110);
-    //System.out.println(a5);
+    System.out.println(a5);
    session1.close();
     sf.close();
 

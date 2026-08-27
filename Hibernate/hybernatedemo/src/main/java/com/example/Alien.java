@@ -5,6 +5,7 @@ import java.util.List;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.FetchType;
 
 
 
@@ -17,7 +18,7 @@ public class Alien {
     private  String aname;
     private String tech;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Laptop> laptops;
 
      public int getaID(){
