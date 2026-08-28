@@ -1,9 +1,12 @@
 package com.example;
 import java.util.Arrays;
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 
 //import org.hibernate.Transaction;
@@ -97,64 +100,42 @@ public class App {
      * System.out.println(s1);
      */
 
-    Laptop l1 = new Laptop();
-    l1.setLid(11);
-    l1.setBrand("Assuslk");
-    l1.setModel("ROsG75");
-    l1.setRam(992);
+  /*  Book b = new Book();
+    b.setBid(1);
+    b.setBauthor("rd sharma");
+    b.setBname("physics");
+    b.setBprice(500);
 
-    Laptop l2 = new Laptop();
-    l2.setLid(12);
-    l2.setBrand("Deelllo");
-    l2.setModel("XPdSss");
-    l2.setRam(3131);
+    Book b1 = new Book();
+    b1.setBid(2);
+    b1.setBauthor("rk sharma");
+    b1.setBname("math");
+    b1.setBprice(600);
 
-    Laptop l3 = new Laptop();
-    l3.setLid(13);
-    l3.setBrand("aapplex");
-    l3.setModel("maacbookkk");
-    l3.setRam(141);
+    Book b2 = new Book();
+    b2.setBid(3);
+    b2.setBauthor("pk kumar");
+    b2.setBname("sst");
+    b2.setBprice(50);
 
-    Alien a1 = new Alien();
-    a1.setaID(110);
-    a1.setaName("Harshittta");
-    a1.setTech("JAVAAffx");
-
-    Alien a2 = new Alien();
-    a2.setaID(111);
-    a2.setaName("Anvitaa");
-    a2.setTech("Pythonscriipt");
-
-
-    a1.setLaptops(Arrays.asList(l1, l2));
-    a2.setLaptops(Arrays.asList(l3));
-   
-    
+    Book b3 = new Book();
+    b3.setBid(4);
+    b3.setBauthor("rs agrwl");
+    b3.setBname("physics");
+    b3.setBprice(500);*/
 
     SessionFactory sf = new Configuration()
         .configure()
-        .addAnnotatedClass(com.example.Alien.class)
-        .addAnnotatedClass(com.example.Laptop.class)
+        .addAnnotatedClass(com.example.Book.class)
         .buildSessionFactory();
 
     Session session = sf.openSession();
 
-    Transaction transaction = session.beginTransaction();
-
-    session.persist(l1);
-    session.persist(l2);
-    session.persist(l3);
-    session.persist(a1);
-    session.persist(a2);
-   
-    transaction.commit();
-
+    Query query =  session.createQuery("from Book where bprice = 500");
+    List<Book> books  = query.getResultList();
+    System.out.println(books);
 
     session.close();
-    Session session1 = sf.openSession();
-    Alien a5 = session1.find(Alien.class, 110);
-    System.out.println(a5);
-   session1.close();
     sf.close();
 
   }
