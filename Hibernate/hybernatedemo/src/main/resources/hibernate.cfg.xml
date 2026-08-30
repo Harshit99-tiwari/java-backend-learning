@@ -11,6 +11,9 @@
         <property name="hibernate.connection.driver_class">
             org.postgresql.Driver
         </property>
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.region.factory_class">jcache</property>
+        <property name="hibernate.javax.cache.provider">org.ehcache.jsr107.EhcacheCachingProvider</property>
 
         <property name="hibernate.connection.url">
             jdbc:postgresql://localhost:5432/student
@@ -40,6 +43,7 @@
         </property>
 
         <mapping class="com.example.Student"/>
+        <mapping class="com.example.Book"/>
 
     </session-factory>
 

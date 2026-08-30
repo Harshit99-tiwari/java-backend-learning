@@ -2,8 +2,11 @@ package com.example;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Book {
 
     @Id

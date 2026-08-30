@@ -130,17 +130,17 @@ public class App {
         .buildSessionFactory();
 
     Session session = sf.openSession();
-    String bname = "math";
-    Query query =  session.createQuery("select bprice,bauthor from Book where bname like ?1");
-    query.setParameter(1,bname);
-    List<Object[]> books  = query.getResultList();
 
-    for(Object[] data:books){
-      System.out.println(data[0]+ " " + (String)data[1]);
-    }
-    System.out.println(books);
-
+    Book b1 = session.find(Book.class,1);
+    System.out.println(b1);
     session.close();
+
+    Session session1 = sf.openSession();
+    Book b2 = session1.find(Book.class,1);
+    System.out.println(b2);
+
+    session1.close();
+
     sf.close();
 
   }
