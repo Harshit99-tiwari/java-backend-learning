@@ -6,6 +6,7 @@
        http://www.springframework.org/schema/beans
        https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="alien" class="org.example.Alien"/>
+    <bean id="alien" class="org.example.Alien" scope="prototype"/>
+    <bean id="lap" class="org.example.Laptop"/>
 
 </beans>
