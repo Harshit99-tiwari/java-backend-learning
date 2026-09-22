@@ -7,9 +7,9 @@
        https://www.springframework.org/schema/beans/spring-beans.xsd">
 <!--  <bean id="alien" class="org.example.Alien" scope="prototype"/>  -->
     <bean id="alien" class="org.example.Alien" >
-    <property name="age" value="26"/>
+    <property name="age" value="26"/><property name="lap" ref="lap1"/>
 </bean>
 
-<bean id="lap" class="org.example.Laptop"/>
+<bean id="lap1" class="org.example.Laptop"/>
 
 </beans>
