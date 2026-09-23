@@ -8,7 +8,7 @@
 <!--  <bean id="alien" class="org.example.Alien" scope="prototype"/>  -->
     <bean id="alien" class="org.example.Alien" autowire="byType" >
         <property name="age" value="26"/>
-      <!--  <property name="cmp" ref="cmp"/>  -->
+        <property name="cmp" ref="dsk"/>
       <!--   <property name="cmp" ref="lap1"/> -->
 
   <!--      <constructor-arg type="org.example.Laptop" ref="lap1"/>
@@ -25,6 +25,6 @@
 </bean>
 
     <bean id="lap1" class="org.example.Laptop" primary="true"/>
-    <bean id="dsk" class="org.example.Desktop"/>
+    <bean id="dsk" class="org.example.Desktop" lazy-init="true"/>
 
 </beans>
