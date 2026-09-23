@@ -7,7 +7,18 @@
        https://www.springframework.org/schema/beans/spring-beans.xsd">
 <!--  <bean id="alien" class="org.example.Alien" scope="prototype"/>  -->
     <bean id="alien" class="org.example.Alien" >
-    <property name="age" value="26"/><property name="lap" ref="lap1"/>
+  <!--      <constructor-arg type="org.example.Laptop" ref="lap1"/>
+        <constructor-arg type="int" value="21"/>
+
+           <constructor-arg index="1" ref="lap1"/>
+        <constructor-arg index="0" value="21"/>   -->
+        <constructor-arg name="lap" ref="lap1"/>
+        <constructor-arg name="age" value="21"/>
+
+
+
+  <!--  <property name="age" value="26"/>
+  <property name="lap" ref="lap1"/>  -->
 </bean>
 
 <bean id="lap1" class="org.example.Laptop"/>
