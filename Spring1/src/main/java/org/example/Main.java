@@ -8,10 +8,19 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String args[]){
-
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-        Desktop d = context.getBean(Desktop.class);
-        d.Compile();
+        Alien obj = context.getBean( Alien.class);
+        //obj.setAge(25);
+        System.out.println(obj.getAge());
+        obj.code();
+
+
+
+//        Desktop d = context.getBean(Desktop.class);
+//        d.Compile();
+//
+//        Desktop d1 = context.getBean(Desktop.class);
+//        d1.Compile();
 
 
         }
