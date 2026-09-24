@@ -1,20 +1,29 @@
 package org.example;
 
-import java.beans.ConstructorProperties;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
+import java.beans.ConstructorProperties;
+@Component
 public class Alien {
+    @Value("26")
     private int age;
+    //@Autowired
+//    @Qualifier("dsk")  // we can use desktop(class name starting with small char) instead of dsk
     private Computer cmp;
 
     public Computer getCmp() {
         return cmp;
     }
-
+    @Autowired
+    @Qualifier("dsk")  //high priority then primary
     public void setCmp(Computer cmp) {
         this.cmp = cmp;
     }
     public Alien(){
-       // System.out.println("Alien object created");
+        System.out.println("Alien object created");
     }
 
     /* private Laptop lap;
