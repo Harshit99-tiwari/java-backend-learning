@@ -4,9 +4,7 @@ package com.example.springbootREST.controller;
 import com.example.springbootREST.model.JobPost;
 import com.example.springbootREST.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,4 +18,14 @@ public class JobRestController {
      public List<JobPost> getAllJobs(){
          return service.getallJob();
      }
+
+     @GetMapping("jobPost/{jobpostid}")
+     public JobPost getJob(@PathVariable int jobpostid) {
+        return service.getJob(jobpostid);
+     }
+     @PostMapping("/jobPost")
+     public void addJob(@RequestBody JobPost jobpost){
+        service.addJob(jobpost);
+     }
+
 }
